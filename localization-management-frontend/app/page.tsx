@@ -1,3 +1,5 @@
+import { ProjectSelector } from "@/src/components/ProjectSelector";
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-stone-100 dark:bg-stone-900 text-stone-800 dark:text-stone-200 font-[family-name:var(--font-geist-sans)]">
@@ -29,8 +31,8 @@ export default function Home() {
               Navigation
             </h2>
             {/* // TODO: Implement Project Selector Component */}
-            <div className="p-3 border border-dashed border-stone-300 dark:border-stone-600 rounded bg-stone-50 dark:bg-stone-700 text-sm text-stone-500 dark:text-stone-400 min-h-[50px] flex items-center justify-center">
-              [Projects/Filters Area]
+            <div className="p-3   rounded  dark:bg-stone-700 text-sm text-stone-500 dark:text-stone-400 min-h-[50px] flex items-center justify-center">
+              <ProjectSelector/>
             </div>
           </div>
           <div>
