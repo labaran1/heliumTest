@@ -1,3 +1,4 @@
+import { Project } from "./projects";
 export type LanguageCode = 'en' | 'fr' | 'es' | 'de' | 'zh' | 'ar' | string;
 
 export type LanguageMap = {
@@ -16,7 +17,8 @@ export interface TranslationKey {
     language: LanguageMap;
     value: string;
   };
-  category: string;
+    category: string;
+    project: Project;
   description?: string;
   tags?: string[];
   translations: {
@@ -32,12 +34,12 @@ export interface TranslationFilter {
 
 export interface TranslationActions {
   addTranslationKey: (key: TranslationKey) => void;
-  addTag: (tag: string) => void;
+  addTagToKey: (keyId: string, tag: string) => void;
 }
 
 export interface TranslationStore {
   keys: TranslationKey[];
   filter: TranslationFilter;
-  selectedLanguages: string[];
+  selectedLanguages: LanguageMap[];
   actions: TranslationActions;
 }
