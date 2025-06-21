@@ -1,0 +1,75 @@
+'use client'
+
+import { useState } from "react";
+import { useProjectStore } from "../store/projectStore";
+import { Project } from "../types/projects";
+
+import {
+    Menu,
+    MenuItem,
+    ListItemText,
+    Typography,
+    Button,
+} from '@mui/material';
+ import { CiFolderOn } from "react-icons/ci";
+ import { HiChevronDown } from 'react-icons/hi';
+  
+  export const ProjectSelector: React.FC = () => {
+    const { projects } = useProjectStore((state) => state);
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const [selectedProject, setSelectedProject] = useState<Project | null>(
+      projects[0] ?? null
+    );
+  
+    const open = Boolean(anchorEl);
+  
+    const handleOpen = (event: React.MouseEvent<HTMLElement>) => {
+      setAnchorEl(event.currentTarget);
+    };
+  
+    const handleClose = () => setAnchorEl(null);
+  
+    const handleSelect = (project: Project) => {
+      setSelectedProject(project);
+      handleClose();
+    };
+  
+    return (
+      <>
+        <Button
+          onClick={handleOpen}
+          variant="outlined"
+          sx={{
+            textTransform: 'none',
+            display: 'flex',
+            alignItems: 'center',
+              gap: 1,
+          }}
+        >
+          <CiFolderOn />
+          <Typography variant="body1">
+            {selectedProject?.name ?? 'Select Project'}
+          </Typography>
+          <HiChevronDown />
+        </Button>
+  
+        <Menu anchorEl={anchorEl} open={open} onClose={handleClose}  >
+  
+          {projects.map((project) => (
+            <MenuItem
+              key={project.id}
+              selected={project.id === selectedProject?.id}
+              onClick={() => handleSelect(project)}
+              >
+                  
+              <ListItemText
+                primary={project.name}
+                secondary={project.description}
+              />
+             
+            </MenuItem>
+          ))}
+        </Menu>
+      </>
+    );
+  };
