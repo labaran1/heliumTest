@@ -22,10 +22,20 @@ const sampleProjects: Project[] = [
 
 
 export const useProjectStore = create<ProjectStore>((set) => ({
-    projects: sampleProjects,
-    actions: {
-        addProject: (project) => set((state) => ({
-            projects: [...state.projects, project],
-        }))
-    }
+  projects: sampleProjects,
+  selectedProject: sampleProjects[0],
+  actions: {
+    addProject: (project) =>
+      set((state) => ({
+        projects: [...state.projects, project],
+      })),
+    setSelectedProject: (project) =>
+      set(() => ({
+        selectedProject: project,
+      })),
+    clearSelectedProject: () =>
+      set(() => ({
+        selectedProject: null,
+      })),
+  },
 }));

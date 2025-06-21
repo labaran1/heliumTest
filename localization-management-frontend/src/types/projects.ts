@@ -12,10 +12,13 @@ export interface Project {
   
 export interface ProjectActions { 
     addProject: (project: Project) => void;
+    setSelectedProject: (project: Project) => void;
+    clearSelectedProject: () => void;
 }
 
 
 export interface ProjectStore {
     projects: Project[];
+    selectedProject?: Project | null;
     actions: ProjectActions;
 }
