@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useProjectStore } from "../store/projectStore";
+import { useShallow } from "zustand/shallow";
 import { Project } from "../types/projects";
 
 import {
@@ -15,11 +16,14 @@ import {
  import { HiChevronDown } from 'react-icons/hi';
   
   export const ProjectSelector: React.FC = () => {
-    const { projects } = useProjectStore((state) => state);
+    const { projects, selectedProject, actions } = useProjectStore(useShallow((state) => ({
+        projects: state.projects,
+        selectedProject: state.selectedProject,
+        actions: state.actions,
+      })));
+      
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-    const [selectedProject, setSelectedProject] = useState<Project | null>(
-      projects[0] ?? null
-    );
+ 
   
     const open = Boolean(anchorEl);
   
@@ -30,9 +34,9 @@ import {
     const handleClose = () => setAnchorEl(null);
   
     const handleSelect = (project: Project) => {
-      setSelectedProject(project);
-      handleClose();
-    };
+        actions.setSelectedProject(project);
+        handleClose();
+      };
   
     return (
       <>
