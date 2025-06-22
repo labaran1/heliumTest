@@ -43,7 +43,7 @@ export default function SearchBar() {
         InputProps={{
           startAdornment: <SearchIcon fontSize="large" style={{marginRight:'2'}} />,
         }}
-        style={{maxWidth:'500px', width:'500px', }}
+        style={{maxWidth:'500px', width:'100%', }}
       />
 
       <IconButton

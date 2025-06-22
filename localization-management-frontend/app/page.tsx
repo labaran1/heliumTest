@@ -54,7 +54,8 @@ export default function Home() {
           {/* Toolbar Area */}
           <div className="bg-white dark:bg-stone-800 shadow rounded-lg p-4 flex items-center justify-between min-h-[60px]">
             {/* // TODO: Implement Toolbar Component (e.g., Search, Add Key Button) */}
-            <div>
+            <div className="w-full p-3   ">
+              {/* [Toolbar: Search, Actions] */}
               <SearchBar/>
             </div>
           </div>
