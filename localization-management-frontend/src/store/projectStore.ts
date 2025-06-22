@@ -23,7 +23,7 @@ const sampleProjects: Project[] = [
 
 export const useProjectStore = create<ProjectStore>((set) => ({
   projects: sampleProjects,
-  selectedProject: sampleProjects[0],
+  selectedProject: null,
   actions: {
     addProject: (project) =>
       set((state) => ({

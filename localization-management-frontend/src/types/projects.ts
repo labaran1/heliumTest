@@ -6,7 +6,7 @@ export interface Project {
     id: string
     name: string
     description?: string;
-    translationKey?:TranslationKey[]
+    translationKey?:TranslationKey['id'][]
 
 }
   
