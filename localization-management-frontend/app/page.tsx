@@ -1,3 +1,4 @@
+import { LanguageSelector } from "@/src/components/LanguageSelector";
 import { ProjectSelector } from "@/src/components/ProjectSelector";
 
 export default function Home() {
@@ -31,7 +32,7 @@ export default function Home() {
               Navigation
             </h2>
             {/* // TODO: Implement Project Selector Component */}
-            <div className="p-3   rounded  dark:bg-stone-700 text-sm text-stone-500 dark:text-stone-400 min-h-[50px] flex items-center justify-center">
+            <div style={{border:'1px solid #4e4e4e', padding:'0 0 4px 8px', }}>
               <ProjectSelector/>
             </div>
           </div>
@@ -40,8 +41,8 @@ export default function Home() {
               Languages
             </h2>
             {/* // TODO: Implement Language Selector Component */}
-            <div className="p-3 border border-dashed border-stone-300 dark:border-stone-600 rounded bg-stone-50 dark:bg-stone-700 text-sm text-stone-500 dark:text-stone-400 min-h-[50px] flex items-center justify-center">
-              [Language Selection Area]
+            <div style={{border:'1px solid #4e4e4e', padding:'0 0 4px 8px', }}>
+              <LanguageSelector/>
             </div>
           </div>
           {/* // TODO: Add any other sidebar sections or components as needed */}

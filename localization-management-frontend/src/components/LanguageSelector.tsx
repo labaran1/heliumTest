@@ -25,12 +25,12 @@ export const LanguageSelector: React.FC = () => {
   const open = Boolean(anchorEl);
 
   const handleToggle = (lang: typeof AVAILABLE_LANGUAGES[number]) => {
-    toggleLanguage(lang); // LanguageMap = { code, label, flag }
+    toggleLanguage(lang); 
   };
 
   return (
     <Box >
-      {/* Trigger button */}
+     
       <Box
         onClick={(e) => setAnchorEl(e.currentTarget)}
         sx={{
@@ -46,7 +46,7 @@ export const LanguageSelector: React.FC = () => {
         <MdArrowDropDown size={20} />
       </Box>
 
-      {/* Dropdown */}
+    
       <Menu anchorEl={anchorEl} open={open} onClose={() => setAnchorEl(null)} >
         {AVAILABLE_LANGUAGES.map((lang) => {
           const isSelected = selectedLanguages.some((l) => l.code === lang.code);
@@ -62,7 +62,7 @@ export const LanguageSelector: React.FC = () => {
         })}
       </Menu>
 
-      {/* Selected Chips */}
+    
       <Box sx={{ mt: 1, display: 'flex', gap: 1, flexWrap: 'wrap' }}>
         {selectedLanguages.map((lang) => (
           <Chip
