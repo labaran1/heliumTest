@@ -3,24 +3,25 @@ import { useState } from "react";
 import { useProjectStore } from "../store/projectStore";
 import { useShallow } from "zustand/shallow";
 import { Project } from "../types/projects";
-
+import { useProjects } from "../hooks/useProjects";
 import {
     Menu,
     MenuItem,
     ListItemText,
     Typography,
-    Button,
+  Button,
+  CircularProgress
 } from '@mui/material';
  import { CiFolderOn } from "react-icons/ci";
  import { HiChevronDown } from 'react-icons/hi';
   
   export const ProjectSelector: React.FC = () => {
-    const { projects, selectedProject, actions } = useProjectStore(useShallow((state) => ({
-        projects: state.projects,
+    const { selectedProject, actions } = useProjectStore(useShallow((state) => ({
+        // projects: state.projects,
         selectedProject: state.selectedProject,
         actions: state.actions,
       })));
-      
+      const { data: projects = [], isPending, isError } = useProjects();
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
  
   
@@ -59,7 +60,13 @@ import {
         </Button>
   
         <Menu anchorEl={anchorEl} open={open} onClose={handleClose}  >
-  
+        {isPending && (
+          <MenuItem><CircularProgress size={20} /></MenuItem>
+        )}
+
+        {isError && (
+          <MenuItem disabled>Error loading projects</MenuItem>
+        )}
           {projects.map((project) => (
             <MenuItem
               key={project.id}
