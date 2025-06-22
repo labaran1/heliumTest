@@ -1,5 +1,4 @@
 'use client'
-
 import { useState } from "react";
 import { useProjectStore } from "../store/projectStore";
 import { useShallow } from "zustand/shallow";
@@ -47,7 +46,9 @@ import {
             textTransform: 'none',
             display: 'flex',
             alignItems: 'center',
-              gap: 1,
+            gap: 1,
+            color: '#4e4e4e',
+            border:'none'
           }}
         >
           <CiFolderOn />
