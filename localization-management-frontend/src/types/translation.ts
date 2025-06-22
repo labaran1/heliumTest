@@ -36,7 +36,9 @@ export interface TranslationFilter {
 }
 
 export interface TranslationActions {
-  addTranslationKey: (key: TranslationKey) => void;
+    addTranslationKey: (key: TranslationKey) => void;
+    updateTranslationKey: (key: Partial<TranslationKey>) => void;
+    removeTranslationKey: (keyId: string) => void;
     addTagToKey: (keyId: string, tag: string) => void;
     toggleLanguage: (language: LanguageMap) => void;
     setFilter: (filter: Partial<TranslationFilter>) => void;

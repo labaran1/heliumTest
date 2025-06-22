@@ -19,7 +19,16 @@ const initialFilter: TranslationFilter = {
         set((state) => ({
           keys: [...state.keys, key],
         })),
-  
+        updateTranslationKey: (updated) =>
+            set((s) => ({
+              keys: s.keys.map((k) =>
+                k.id === updated.id ? { ...k, ...updated } : k
+              ),
+            })),
+          removeTranslationKey: (keyId) =>
+            set((s) => ({
+              keys: s.keys.filter((k) => k.id !== keyId),
+            })),
       addTagToKey: (keyId, tag) =>
         set((state) => ({
           keys: state.keys.map((k) =>
