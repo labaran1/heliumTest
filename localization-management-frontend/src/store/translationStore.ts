@@ -6,7 +6,8 @@ import { TranslationStore, TranslationFilter,  } from "../types/translation";
 const initialFilter: TranslationFilter = {
     search: '',
     category: '',
-    language: ''
+    language: '',
+    tags: ["home", "about", "contact", "privacy", "terms"],
   };
   
   export const useTranslationStore = create<TranslationStore>((set,get) => ({
@@ -63,7 +64,10 @@ const initialFilter: TranslationFilter = {
                 })),
               });
             }
-          }
+        },
+        setFilter: (partial) => {
+             set((s) => ({ filter: { ...s.filter, ...partial } }))
+        }
        
   
     },

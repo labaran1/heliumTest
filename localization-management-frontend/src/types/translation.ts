@@ -31,13 +31,16 @@ export interface TranslationKey {
 export interface TranslationFilter {
   search: string;
   category: string;
-  language: string;
+    language: string;
+    tags: string[];
 }
 
 export interface TranslationActions {
   addTranslationKey: (key: TranslationKey) => void;
     addTagToKey: (keyId: string, tag: string) => void;
-    toggleLanguage: (language:LanguageMap) => void;
+    toggleLanguage: (language: LanguageMap) => void;
+    setFilter: (filter: Partial<TranslationFilter>) => void;
+
 }
 
 export interface TranslationStore {
