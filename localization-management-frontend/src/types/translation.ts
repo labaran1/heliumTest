@@ -1,14 +1,16 @@
 import { Project } from "./projects";
 export type LanguageCode = 'en' | 'fr' | 'es' | 'de' | 'zh' | 'ar' | string;
 
-export type LanguageMap = {
-  [code in LanguageCode]?: string;
+export interface LanguageMap {
+    code: LanguageCode;
+    label: string;
+    flag?: string;
 };
 
 export interface TranslationValue {
-  value: string;
+  value?: string;
   updatedAt?: string;
-  updatedBy: string;
+  updatedBy?: string;
 }
 
 export interface TranslationKey {
@@ -34,7 +36,8 @@ export interface TranslationFilter {
 
 export interface TranslationActions {
   addTranslationKey: (key: TranslationKey) => void;
-  addTagToKey: (keyId: string, tag: string) => void;
+    addTagToKey: (keyId: string, tag: string) => void;
+    toggleLanguage: (language:LanguageMap) => void;
 }
 
 export interface TranslationStore {
