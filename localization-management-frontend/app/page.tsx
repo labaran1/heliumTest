@@ -1,6 +1,7 @@
 import { LanguageSelector } from "@/src/components/LanguageSelector";
 import { ProjectSelector } from "@/src/components/ProjectSelector";
 import SearchBar from "@/src/components/SearchBar";
+import TranslationKeyList from "@/src/components/TranslationKeyList";
 
 export default function Home() {
   return (
@@ -66,8 +67,9 @@ export default function Home() {
               Translation Management Area
             </h2>
             {/* // TODO: Implement Translation Key List & Editor Component */}
-            <div className="p-6 border border-dashed border-stone-300 dark:border-stone-600 rounded bg-stone-50 dark:bg-stone-700 text-lg text-stone-500 dark:text-stone-400 min-h-[300px] flex items-center justify-center">
-              [Main Content: Key List, Editor, etc.]
+            <div className="p-6   flex items-center justify-center">
+              {/* [Main Content: Key List, Editor, etc.] */}
+              <TranslationKeyList/>
             </div>
           </section>
         </main>
