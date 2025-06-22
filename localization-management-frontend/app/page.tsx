@@ -1,5 +1,6 @@
 import { LanguageSelector } from "@/src/components/LanguageSelector";
 import { ProjectSelector } from "@/src/components/ProjectSelector";
+import SearchBar from "@/src/components/SearchBar";
 
 export default function Home() {
   return (
@@ -53,8 +54,8 @@ export default function Home() {
           {/* Toolbar Area */}
           <div className="bg-white dark:bg-stone-800 shadow rounded-lg p-4 flex items-center justify-between min-h-[60px]">
             {/* // TODO: Implement Toolbar Component (e.g., Search, Add Key Button) */}
-            <div className="w-full p-3 border border-dashed border-stone-300 dark:border-stone-600 rounded bg-stone-50 dark:bg-stone-700 text-sm text-stone-500 dark:text-stone-400 flex items-center justify-center">
-              [Toolbar: Search, Actions]
+            <div>
+              <SearchBar/>
             </div>
           </div>
 
